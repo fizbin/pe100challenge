@@ -36,3 +36,10 @@ rust's string manipulation functions, but for this I think the best
 thing to do is take each line, split at spaces, and parse the
 numbers. (then put it all into an array or two-dimensional vector)
 
+...
+
+Okay, so I clearly am missing something about Rust's integer types and
+how one works with them because this took me far too long, and most of
+that time was fighting the compiler to let me combine different kinds
+of integers. I'm still not happy with where I ended up, or how to deal
+easily with Rust's different integers.
