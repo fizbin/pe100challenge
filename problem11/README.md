@@ -43,3 +43,9 @@ how one works with them because this took me far too long, and most of
 that time was fighting the compiler to let me combine different kinds
 of integers. I'm still not happy with where I ended up, or how to deal
 easily with Rust's different integers.
+
+...
+
+Now asked about this on the [codereview stack
+exchange](https://codereview.stackexchange.com/questions/238374/project-euler-11-largest-product-in-a-grid)
+so some changes from the standard advice there.

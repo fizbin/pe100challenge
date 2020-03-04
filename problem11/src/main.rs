@@ -1,10 +1,8 @@
-use std::vec;
-
-fn parse_grid(gridstr : &str) -> Vec<Vec<u64>> {
+fn parse_grid(gridstr: &str) -> Vec<Vec<u64>> {
     let lines = gridstr.trim().split("\n");
     let mut retval = Vec::new();
     for line in lines {
-        let mut thisline : Vec<u64> = Vec::new();
+        let mut thisline: Vec<u64> = Vec::new();
         for numstr in line.trim().split_whitespace() {
             thisline.push(numstr.parse().expect("Expected a u64"));
         }
@@ -37,38 +35,45 @@ fn main() {
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 "#;
     let grid = parse_grid(gridstr);
-    
+
     println!("{}", search_grid(&grid));
 }
 
-fn find_elem(grid : &Vec<Vec<u64>>, locx : usize, locy : usize) -> u64 {
-    if locx < grid.len() && locx >= 0 {
-        if locy < grid[locx].len() && locy >= 0 {
+fn find_elem(grid: &[Vec<u64>], locx: usize, locy: usize) -> u64 {
+    if locx < grid.len() {
+        if locy < grid[locx].len() {
             return grid[locx][locy];
         }
     }
     0
 }
 
-fn add(lft : usize, rgt : i32) -> usize {
+fn add(lft: usize, rgt: i32) -> usize {
     // Returns 999 on negative
-    let ret1 : i64 = (lft as i64) + (rgt as i64);
+    let ret1: i64 = (lft as i64) + (rgt as i64);
     if ret1 < 0 {
         return 999;
     }
     ret1 as usize
 }
 
-
-fn search_grid(grid : &Vec<Vec<u64>>) -> u64 {
+fn search_grid(grid: &[Vec<u64>]) -> u64 {
     let mut max_found = 0;
     for direction in [(1, 0), (1, 1), (0, 1), (-1, 1)].iter() {
-        for startx in 0 .. grid.len() {
-            for starty in 0 .. grid[startx].len() {
-                let result = find_elem(grid, startx, starty) *
-                    find_elem(grid, add(startx, direction.0), add(starty, direction.1)) *
-                    find_elem(grid, add(startx, 2*direction.0), add(starty, 2*direction.1)) *
-                    find_elem(grid, add(startx, 3*direction.0), add(starty, 3*direction.1));
+        for startx in 0..grid.len() {
+            for starty in 0..grid[startx].len() {
+                let result = find_elem(grid, startx, starty)
+                    * find_elem(grid, add(startx, direction.0), add(starty, direction.1))
+                    * find_elem(
+                        grid,
+                        add(startx, 2 * direction.0),
+                        add(starty, 2 * direction.1),
+                    )
+                    * find_elem(
+                        grid,
+                        add(startx, 3 * direction.0),
+                        add(starty, 3 * direction.1),
+                    );
                 if result > max_found {
                     max_found = result;
                 }
