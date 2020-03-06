@@ -49,3 +49,16 @@ easily with Rust's different integers.
 Now asked about this on the [codereview stack
 exchange](https://codereview.stackexchange.com/questions/238374/project-euler-11-largest-product-in-a-grid)
 so some changes from the standard advice there.
+
+...
+
+Okay, after looking over the advice on `codereview.stackexchange`, I
+decided to revisit my solution and I think I like the changes. I still
+think I'm doing too many integer conversions, but they're sitting a
+little bit better with me now. (Plus, I learned about the `isize`
+type)
+
+One thing that is not sitting well with me is the `move` keyword. I
+just added it where the compiler told me to, but I don't understand
+what it's doing beyond "this is something you add when the compiler
+tells you to so that stuff compiles".

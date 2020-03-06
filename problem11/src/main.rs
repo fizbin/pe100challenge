@@ -1,14 +1,14 @@
-fn parse_grid(gridstr: &str) -> Vec<Vec<u64>> {
-    let lines = gridstr.trim().split("\n");
-    let mut retval = Vec::new();
-    for line in lines {
-        let mut thisline: Vec<u64> = Vec::new();
-        for numstr in line.trim().split_whitespace() {
-            thisline.push(numstr.parse().expect("Expected a u64"));
-        }
-        retval.push(thisline);
-    }
-    retval
+fn parse_grid(gridstr: &str) -> Vec<Vec<u8>> {
+    gridstr
+        .trim()
+        .split("\n")
+        .map(|line| {
+            line.trim()
+                .split_whitespace()
+                .map(|numstr| numstr.parse().expect("Expected a u8"))
+                .collect()
+        })
+        .collect()
 }
 
 fn main() {
@@ -34,51 +34,43 @@ fn main() {
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 "#;
-    let grid = parse_grid(gridstr);
+    let gridholder = parse_grid(gridstr);
+    let grid: Vec<&[u8]> = gridholder.iter().map(|x| &x[..]).collect();
 
     println!("{}", search_grid(&grid));
 }
 
-fn find_elem(grid: &[Vec<u64>], locx: usize, locy: usize) -> u64 {
-    if locx < grid.len() {
-        if locy < grid[locx].len() {
-            return grid[locx][locy];
+fn find_elem(grid: &[&[u8]], locx: isize, locy: isize) -> u64 {
+    if locx >= 0 && (locx as usize) < grid.len() {
+        if locy >= 0 && (locy as usize) < grid[locx as usize].len() {
+            return u64::from(grid[locx as usize][locy as usize]);
         }
     }
     0
 }
 
-fn add(lft: usize, rgt: i32) -> usize {
-    // Returns 999 on negative
-    let ret1: i64 = (lft as i64) + (rgt as i64);
-    if ret1 < 0 {
-        return 999;
+fn prod_4(grid: &[&[u8]], startx: usize, starty: usize, dirx: isize, diry: isize) -> u64 {
+    let mut istartx = startx as isize;
+    let mut istarty = starty as isize;
+    let mut prod: u64 = 1;
+    for _ in 0..4 {
+        prod *= find_elem(grid, istartx, istarty);
+        istartx += dirx;
+        istarty += diry;
     }
-    ret1 as usize
+    prod
 }
 
-fn search_grid(grid: &[Vec<u64>]) -> u64 {
-    let mut max_found = 0;
-    for direction in [(1, 0), (1, 1), (0, 1), (-1, 1)].iter() {
-        for startx in 0..grid.len() {
-            for starty in 0..grid[startx].len() {
-                let result = find_elem(grid, startx, starty)
-                    * find_elem(grid, add(startx, direction.0), add(starty, direction.1))
-                    * find_elem(
-                        grid,
-                        add(startx, 2 * direction.0),
-                        add(starty, 2 * direction.1),
-                    )
-                    * find_elem(
-                        grid,
-                        add(startx, 3 * direction.0),
-                        add(starty, 3 * direction.1),
-                    );
-                if result > max_found {
-                    max_found = result;
-                }
-            }
-        }
-    }
-    max_found
+fn search_grid(grid: &[&[u8]]) -> u64 {
+    let directions = [(1, 0), (1, 1), (0, 1), (-1, 1)];
+    directions
+        .iter()
+        .flat_map(move |dir| {
+            (0..grid.len()).flat_map(move |startx| {
+                (0..grid[startx].len())
+                    .map(move |starty| prod_4(grid, startx, starty, dir.0, dir.1))
+            })
+        })
+        .max()
+        .unwrap_or(0)
 }
