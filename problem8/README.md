@@ -43,4 +43,4 @@ simply. I did get to learn a little about rust's `const` statement.
 
 ## Source
 
-[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}src/main.rs)

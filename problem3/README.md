@@ -18,4 +18,4 @@ end up with a prime number and that's the answer.
 
 ## Source
 
-[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}src/main.rs)

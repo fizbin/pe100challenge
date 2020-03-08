@@ -22,4 +22,4 @@ And indeed it was, modulo a few quirks of rust that I'm still learning
 
 ## Source
 
-[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}src/main.rs)

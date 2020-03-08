@@ -44,4 +44,4 @@ the first _n_ even Fibonacci, but that's for some other time.
 
 ## Source
 
-[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}src/main.rs)
