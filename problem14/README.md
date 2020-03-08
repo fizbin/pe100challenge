@@ -63,3 +63,9 @@ Example errors from the compiler:
 Why on earth am I ending up with references to integers when I'm
 iterating over a range? It's not as though it'd make sense to change
 the integers.
+
+...
+
+And once I add profiling, it's clearly not worth the cost to try use
+`max_by` in any case, and the most straightforward approach seems the
+best.
