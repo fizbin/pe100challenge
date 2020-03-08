@@ -21,3 +21,8 @@ difference between the two factors. I then start with the largest
 possible sum and work my way backwards. The instant I find a
 palindrome, I cut all `factorsum` loops off once the product drops
 below that value.
+
+
+## Source
+
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)

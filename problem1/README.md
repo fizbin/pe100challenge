@@ -15,3 +15,7 @@ multiple of 3 or 5, which is checked just as in C.
 I suppose this one could be done by hand using the formula for
 \sum_{i=1}^k i, but straight-forward brute force was very sikmple and
 fast.
+
+## Source
+
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)

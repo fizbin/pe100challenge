@@ -39,3 +39,8 @@ also use an Option type, which I probably should have used in problem
 
 Well, no option type because I structured this program much more
 simply. I did get to learn a little about rust's `const` statement.
+
+
+## Source
+
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)

@@ -14,3 +14,8 @@ a multiple of 6 and one more than a multiple of 6.
 
 I then repeatedly divide my goal by its smallest prime factor until I
 end up with a prime number and that's the answer.
+
+
+## Source
+
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)

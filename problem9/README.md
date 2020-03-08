@@ -24,3 +24,8 @@ Formula](https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple)
 Yep, straightforward. I do wonder if there's a more idiomatic way to
 break out of a doubly-nested loop in rust than to push both loops off
 into a separate function that you then return out of.
+
+
+## Source
+
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)

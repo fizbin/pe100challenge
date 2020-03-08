@@ -21,3 +21,8 @@ hundred natural numbers and the square of the sum.
 There are straightforward formulas for `\sum_{k=1}^n k^2`, but it's so
 simple in this case to use brute force that I won't bother looking
 them up.
+
+
+## Source
+
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)

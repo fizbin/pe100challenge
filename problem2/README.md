@@ -40,3 +40,8 @@ with `fibn = 2` and `fibnm1 = 1`.
 This could possibly also be done by hand since there are formulas for
 the sum of the first _n_ Fibonacci numbers which could be adapted to
 the first _n_ even Fibonacci, but that's for some other time.
+
+
+## Source
+
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)

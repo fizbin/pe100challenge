@@ -22,3 +22,8 @@ I also keep slamming into errors where the compiler tells me that I
 should dereference something, and I dereference what it suggests, and
 it works, but I think I'm missing something about most of these places
 where I end up with a reference instead of the value I intend.
+
+
+## Source
+
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)

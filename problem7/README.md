@@ -28,3 +28,8 @@ error was just forgetting to declare a variable correctly:
        |         ----- help: consider changing this to be mutable: `mut sieve`
     14 |     sieve[0] = false;
        |     ^^^^^ cannot borrow as mutable
+
+
+## Source
+
+[Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}/src/main.rs)
