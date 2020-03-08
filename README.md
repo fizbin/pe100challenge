@@ -29,5 +29,6 @@ and what rust I'm learning as I do the problem.
 - [Problem 10](problem10/)
 - [Problem 11](problem11/)
 - [Problem 12](problem12/)
+- [Problem 13: Large sum](problem13/)
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/

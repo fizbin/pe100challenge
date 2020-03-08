@@ -44,8 +44,6 @@ problem I wound up using a `&mut [&mut [u8]]`, which looks a bit
 strange to me and I don't know what's going on there with that. (but
 it was what the compiler asked me to use, so...)
 
-
-
 ## Source
 
 [Source code](https://github.com/fizbin/pe100challenge/blob/master{{page.url}}src/main.rs)
