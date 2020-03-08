@@ -31,6 +31,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 12](problem12/)
 - [Problem 13: Large sum](problem13/)
 - [Problem 14: Longest Collatz sequence](problem14/)
+- [Problem 15: Lattice paths](problem15/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
