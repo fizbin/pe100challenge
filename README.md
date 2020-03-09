@@ -36,6 +36,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 17: Number letter counts](problem17/)
 - [Problem 18: Maximum path sum I](problem18/)
 - [Problem 19: Counting Sundays](problem19/)
+- [Problem 20: Factorial digit sum](problem20/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
