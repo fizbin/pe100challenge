@@ -33,6 +33,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 14: Longest Collatz sequence](problem14/)
 - [Problem 15: Lattice paths](problem15/)
 - [Problem 16: Power digit sum](problem16/)
-
+- [Problem 17: Number letter counts](problem17/)
+- [Problem 18: Maximum path sum I](problem18/)
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
