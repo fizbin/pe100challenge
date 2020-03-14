@@ -65,7 +65,7 @@ fn search_grid(grid: &[&[u8]]) -> u64 {
     let directions = [(1, 0), (1, 1), (0, 1), (-1, 1)];
     directions
         .iter()
-        .flat_map(move |dir| {
+        .flat_map(|dir| {
             (0..grid.len()).flat_map(move |startx| {
                 (0..grid[startx].len())
                     .map(move |starty| prod_4(grid, startx, starty, dir.0, dir.1))

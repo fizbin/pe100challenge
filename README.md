@@ -38,5 +38,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 19: Counting Sundays](problem19/)
 - [Problem 20: Factorial digit sum](problem20/)
 - [Problem 21: Amicable numbers](problem21/)
+- [Problem 22: Names scores](problem22/)
+
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
