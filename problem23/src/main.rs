@@ -2,10 +2,11 @@ use bitvec::prelude::*;
 use num::integer::Integer;
 use std::vec::Vec;
 
-const LIMIT: usize = 28200;
+type BitVecUnit = u8;
+const LIMIT: usize = 28200; // Deliberately a tiny bit larger than necessary
 
 fn main() {
-    let mut abundants = bitvec![Local, u8; 0; LIMIT];
+    let mut abundants = bitvec![Local, BitVecUnit; 0; LIMIT];
     let mut abundants_vec = Vec::new();
     for idx in 0..LIMIT {
         let idx_u32 = idx as u32;
@@ -14,16 +15,26 @@ fn main() {
             abundants_vec.push(idx);
         }
     }
-    let mut sums = bitvec![Local, u8; 0; LIMIT];
+    let mut sums = bitvec![Local, BitVecUnit; 0; LIMIT];
 
     // switch true<->false to do this with bitvec manipulation or not
     if true {
         // 0.07s
 
-        let abundants_bitvecs: Vec<BitVec<_, _>> = (0..8).map(|x| abundants.clone() >> x).collect();
+        let unit_size: usize = usize::from(BitVecUnit::BITS);
+        let abundants_bitvecs: Vec<BitVec<_, _>> =
+            (0..unit_size).map(|x| abundants.clone() >> x).collect();
 
         for abundant in &abundants_vec {
-            let (div8, rem8) = abundant.div_rem(&8);
+            // Logically, I want here
+            //      sums |= (abundants >> abundant)
+            // or equivalently
+            //      sums[abundant..] |= abundants
+            // however, the simple doesn't work because borrowing, and
+            // even if it did it'd be really slow because lots of
+            // individual bit shifts of a large BitVec are slow.
+
+            let (div8, rem8) = abundant.div_rem(&unit_size);
 
             // I really wish I had some sort of |= for BitSlices here that
             // worked like this:
