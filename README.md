@@ -40,6 +40,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 21: Amicable numbers](problem21/)
 - [Problem 22: Names scores](problem22/)
 - [Problem 23: Non-abundant sums](problem23/)
+- [Problem 24: Lexicographic permutations](problem24/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
