@@ -44,6 +44,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 25: 1000-digit Fibonacci number](problem25/)
 - [Problem 26: Reciprocal cycles](problem26/)
 - [Problem 27: Quadratic primes](problem27/)
+- [Problem 28: Number spiral diagonals](problem28/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
