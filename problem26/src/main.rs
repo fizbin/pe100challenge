@@ -12,7 +12,6 @@ fn main() {
 }
 
 fn find_reciprocal_cycle_length(divisor: u32) -> u32 {
-    
     let mut n = 10 % divisor;
     for _ in 0..divisor {
         n *= 10;

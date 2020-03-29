@@ -4,8 +4,8 @@ fn main() {
     let mut fib1 = Integer::from(1);
     let mut fib2 = Integer::from(1);
     let mut tmp = Integer::new();
-    let limit = Integer::from(Integer::i_pow_u(10,999));
-    let mut n : u32 = 1;
+    let limit = Integer::from(Integer::i_pow_u(10, 999));
+    let mut n: u32 = 1;
 
     loop {
         tmp.assign(&fib2);
