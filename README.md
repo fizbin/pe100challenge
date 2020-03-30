@@ -50,6 +50,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 31: Coin sums](problem31/)
 - [Problem 32: Pandigital products](problem32/)
 - [Problem 33: Digit cancelling fractions](problem33/)
+- [Problem 34: Digit factorials](problem34/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
