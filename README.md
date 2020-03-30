@@ -48,6 +48,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 29: Distinct powers](problem29/)
 - [Problem 30: Digit fifth powers](problem30/)
 - [Problem 31: Coin sums](problem31/)
+- [Problem 32: Pandigital products](problem32/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
