@@ -46,6 +46,8 @@ and what rust I'm learning as I do the problem.
 - [Problem 27: Quadratic primes](problem27/)
 - [Problem 28: Number spiral diagonals](problem28/)
 - [Problem 29: Distinct powers](problem29/)
+- [Problem 30: Digit fifth powers](problem30/)
+- [Problem 31: Coin sums](problem31/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
