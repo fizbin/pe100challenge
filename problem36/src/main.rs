@@ -1,15 +1,14 @@
 fn main() {
     let mut sum = 0;
-    find_all_palindromes(|x| {
+    find_all_base2_palindromes(|x| {
         if check_base10_palindrome(x) {
-            println!("{}", x);
             sum += x;
         }
     });
     println!("{}", sum);
 }
 
-fn find_all_palindromes<F>(mut found_func: F)
+fn find_all_base2_palindromes<F>(mut found_func: F)
 where
     F: FnMut(u32),
 {
@@ -17,14 +16,13 @@ where
     for n_inner_digits in 0u8..=18 {
         let high_added: u32 = 1 << (n_inner_digits + 1);
         let mut inner_func = |x| found_func(high_added + 2 * x + 1);
-        palindrome_loop(n_inner_digits, inner_func);
+        base2_palindrome_loop(n_inner_digits, &mut inner_func);
     }
 }
 
-fn palindrome_loop<F>(n_digits: u8, mut found_func: F)
-where
-    F: FnMut(u32),
-{
+// Recursive function that wraps the function parameter, so generics
+// won't work
+fn base2_palindrome_loop(n_digits: u8, found_func: &mut dyn FnMut(u32)) {
     if n_digits == 0 {
         found_func(0);
     } else if n_digits == 1 {
@@ -32,10 +30,10 @@ where
         found_func(1);
     } else {
         let mut zero_func = |x| found_func(2 * x);
-        palindrome_loop(n_digits - 2, zero_func);
+        base2_palindrome_loop(n_digits - 2, &mut zero_func);
         let high_added: u32 = 1 << (n_digits - 1);
         let mut one_func = |x| found_func(high_added + 2 * x + 1);
-        palindrome_loop(n_digits - 2, one_func);
+        base2_palindrome_loop(n_digits - 2, &mut one_func);
     }
 }
 

@@ -52,6 +52,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 33: Digit cancelling fractions](problem33/)
 - [Problem 34: Digit factorials](problem34/)
 - [Problem 35: Circular primes](problem35/)
+- [Problem 36: Double-base palindromes](problem36/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
