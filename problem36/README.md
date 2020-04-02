@@ -22,3 +22,22 @@ their sum.
 
 Well, I think that's a good algorithmic idea, but my attempt to code it
 rust failed miserably. Going to go ask the rust community in discord.
+
+Here's what the rust compiler gives me as an error message:
+
+    error: reached the type-length limit while instantiating `palindrome_loop::<[closure@src/m...igh_added:&u32]]]]]]]]]]]]]]]]]>`
+      --> src/main.rs:24:1
+       |
+    24 | / fn palindrome_loop<F>(n_digits: u8, mut found_func: F)
+    25 | | where
+    26 | |     F: FnMut(u32),
+    27 | | {
+    ...  |
+    39 | |     }
+    40 | | }
+       | |_^
+       |
+       = note: consider adding a `#![type_length_limit="2097145"]` attribute to your crate
+    
+I suspect that I'm somehow creating an arbitrarily long type, and
+no `type_length_limit` would help me.
