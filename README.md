@@ -57,6 +57,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 38: Pandigital multiples](problem38/)
 - [Problem 39: Integer right triangles](problem39/)
 - [Problem 40: Champernowne's constant](problem40/)
+- [Problem 41: Pandigital prime](problem41/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
