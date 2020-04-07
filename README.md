@@ -55,6 +55,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 36: Double-base palindromes](problem36/)
 - [Problem 37: Truncatable primes](problem37/)
 - [Problem 38: Pandigital multiples](problem38/)
+- [Problem 39: Integer right triangles](problem39/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
