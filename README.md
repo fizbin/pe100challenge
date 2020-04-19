@@ -59,6 +59,7 @@ and what rust I'm learning as I do the problem.
 - [Problem 40: Champernowne's constant](problem40/)
 - [Problem 41: Pandigital prime](problem41/)
 - [Problem 42: Coded triangle numbers](problem42/)
+- [Problem 43: Sub-string divisibility](problem43/)
 
 
 [1]: https://www.freecodecamp.org/news/projecteuler100-coding-challenge-competitive-programming/
