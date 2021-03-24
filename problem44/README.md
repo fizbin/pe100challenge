@@ -38,3 +38,17 @@ following pieces:
   `k` value and that **after** the initial result of
   `((k*(3k-1)/2) + 3*k, 1, 1+k)` produces results from
   `mergeiterator(mydiffpair, itfunc(k+1))`
+
+...
+
+Well that didn't work. The iterator approach got me bogged down
+in mutable reference hell, and once I finally solved that by applying
+`Box<>` I ran into a stack overflow exception. If you look at
+the algorithm as described, that makes sense.
+
+Instead, I wound up using a heap to iterate over pairs (n, k) so that
+P<sub>n+k</sub> - P<sub>n</sub> was minimized.
+
+Many people on the Project Euler forums seem to have been very
+careless about iterating in the right order, and it doesn't seem
+to have mattered.
