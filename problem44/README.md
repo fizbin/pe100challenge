@@ -1,4 +1,4 @@
-# Problem 43: Sub-string divisbility
+# Problem 44: Pentagon numbers
 
 ## Problem statement
 
