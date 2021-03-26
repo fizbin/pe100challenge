@@ -1,12 +1,13 @@
 use bitvec::prelude::*;
-use num::integer::Integer;
+use funty::IsNumber;
+use num_integer::Integer;
 use std::vec::Vec;
 
 type BitVecUnit = u8;
 const LIMIT: usize = 28200; // Deliberately a tiny bit larger than necessary
 
 fn main() {
-    let mut abundants = bitvec![Local, BitVecUnit; 0; LIMIT];
+    let mut abundants = bitvec![LocalBits, BitVecUnit; 0; LIMIT];
     let mut abundants_vec = Vec::new();
     for idx in 0..LIMIT {
         let idx_u32 = idx as u32;
@@ -15,15 +16,20 @@ fn main() {
             abundants_vec.push(idx);
         }
     }
-    let mut sums = bitvec![Local, BitVecUnit; 0; LIMIT];
+    let mut sums = bitvec![LocalBits, BitVecUnit; 0; LIMIT];
 
     // switch true<->false to do this with bitvec manipulation or not
     if true {
         // 0.07s
 
-        let unit_size: usize = usize::from(BitVecUnit::BITS);
-        let abundants_bitvecs: Vec<BitVec<_, _>> =
-            (0..unit_size).map(|x| abundants.clone() >> x).collect();
+        let unit_size: usize = <BitVecUnit as IsNumber>::BITS as usize;
+        let abundants_bitvecs: Vec<_> = (0..unit_size)
+            .map(|x| {
+                let mut ab = abundants.clone();
+                ab.shift_right(x);
+                ab
+            })
+            .collect();
 
         for abundant in &abundants_vec {
             // Logically, I want here
@@ -41,9 +47,9 @@ fn main() {
             //     sums[8*div8..] |= &(abundants_bitvecs[rem8][..]);
             // but apparently this is how you're supposed to do it:
 
-            sums.as_mut_slice()[div8..]
+            sums.as_mut_raw_slice()[div8..]
                 .iter_mut()
-                .zip(abundants_bitvecs[rem8].as_slice())
+                .zip(abundants_bitvecs[rem8].as_raw_slice())
                 .for_each(|(u1, u2)| {
                     *u1 |= u2;
                 });
