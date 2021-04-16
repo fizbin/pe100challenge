@@ -1,3 +1,4 @@
+use std::cell::Cell;
 use std::cmp::Ordering;
 use std::collections::HashSet;
 use std::fs::File;
@@ -96,12 +97,11 @@ impl FromStr for Card {
 
 // Assumes that hand is sorted highest rank to lowest rank
 fn score_hand(hand: &[Card; 5]) -> HandType {
-    let mut best_so_far = [HighCard([hand.iter().max().unwrap().clone()])];
-    let mut has_score = move |score| {
-        //if best_so_far.le(&score) {
-        //    best_so_far = score;
-        //}
-        best_so_far[0] = score;
+    let best_so_far: Cell<HandType> = Cell::new(HighCard([hand.iter().max().unwrap().clone()]));
+    let has_score = |score| {
+        if best_so_far.get().le(&score) {
+            best_so_far.set(score);
+        }
     };
     let first_suit = hand[0].suit();
     let first_rank = hand[0].rank_int();
@@ -114,8 +114,8 @@ fn score_hand(hand: &[Card; 5]) -> HandType {
     }
     if hand.iter().all(|c| c.suit() == first_suit) {
         // some kind of flush
-        match best_so_far {
-            [Straight(x)] => {
+        match best_so_far.get() {
+            Straight(x) => {
                 if hand[0].rank() == 'A' {
                     return RoyalFlush(x);
                 } else {
@@ -199,7 +199,7 @@ fn score_hand(hand: &[Card; 5]) -> HandType {
             panic!("Impossible rank count {} for hand {:?}", x, &hand);
         }
     }
-    best_so_far[0]
+    best_so_far.get()
 }
 
 fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
