@@ -234,6 +234,7 @@ fn main() {
                                 p2.reverse();
                                 let p1score = score_hand(&p1);
                                 let p2score = score_hand(&p2);
+                                let oldp1win = p1win;
                                 match p1score.partial_cmp(&p2score) {
                                     None | Some(Ordering::Equal) => {
                                         if p1 > p2 {
@@ -243,6 +244,11 @@ fn main() {
                                     Some(Ordering::Greater) => p1win += 1,
                                     _ => (),
                                 }
+                                if p1win == oldp1win {
+                                    println!("{} -> P2 {:?} vs {:?}", line2, p1score, p2score);
+                                } else {
+                                    println!("{} -> P1 {:?} vs {:?}", line2, p1score, p2score);
+                                }
                             }
                         }
                     }
@@ -250,8 +256,6 @@ fn main() {
             }
         }
     }
-    let hand1 = ThreeKind([Card(['K', 'H']), Card(['K', 'D']), Card(['K', 'S'])]);
-    let hand2 = ThreeKind([Card(['T', 'C']), Card(['T', 'D']), Card(['T', 'S'])]);
-    println!("{:?}", hand1.partial_cmp(&hand2));
+
     println!("{}", p1win);
 }
