@@ -1,4 +1,4 @@
-use rug::Integer;
+use dashu::{ibig, Integer};
 
 fn main() {
     let integers_as_string = r"
@@ -103,14 +103,11 @@ fn main() {
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 ";
-    let mut sum = Integer::new();
-    for line in
-        integers_as_string
-        .trim()
-        .split("\n") {
-            let myint = line.parse::<Integer>().unwrap();
-            sum += myint;
-        }
+    let mut sum = ibig!(0);
+    for line in integers_as_string.trim().split("\n") {
+        let myint = line.parse::<Integer>().unwrap();
+        sum += myint;
+    }
 
     let sum_str = sum.to_string();
     println!("{}", &sum_str[0..10]);

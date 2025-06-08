@@ -46,7 +46,7 @@ fn iterate_over_pandigitals(f: &mut dyn FnMut(u64, &[u64])) {
 
         if dig_index == n_usize {
             let val: u64 = digits.iter().fold(0, |acc, i| 10 * acc + *i);
-            &f(val, &digits);
+            let _ = &f(val, &digits);
         } else {
             dig_index += 1;
         }

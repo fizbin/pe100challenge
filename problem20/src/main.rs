@@ -1,15 +1,17 @@
-use core::cmp::Ordering;
-use rug::Integer;
-use std::convert::TryFrom;
+use dashu::{ibig, Integer};
+use dashu::base::DivRemAssign;
+
 
 fn main() {
-    let mut longpow = Integer::from(Integer::factorial(100));
-    let mut digsum = 0u16;
-    while longpow.cmp0() == Ordering::Greater {
-        let mut digit = Integer::from(10);
-        longpow.div_rem_mut(&mut digit);
-        digsum += u16::try_from(digit).unwrap();
+    let mut longpow = ibig!(1);
+    for mulfac in 1..=100 {
+        longpow *= mulfac;
     }
-    
+    let mut digsum = 0u16;
+    while longpow > Integer::ZERO {
+        let digit = longpow.div_rem_assign(10 as u16);
+        digsum += digit;
+    }
+
     println!("{}", digsum);
 }

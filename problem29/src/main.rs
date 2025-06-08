@@ -1,13 +1,12 @@
+use dashu::Integer;
 use std::collections::HashSet;
-use rug::Integer;
-
 
 fn main() {
     let mut values = HashSet::new();
 
     for a in 2..=100_i32 {
-        for b in 2..=100_u32 {
-            values.insert(Integer::from(Integer::i_pow_u(a, b)));
+        for b in 2..=100_usize {
+            values.insert(Integer::from(a).pow(b));
         }
     }
     println!("{}", values.len());
